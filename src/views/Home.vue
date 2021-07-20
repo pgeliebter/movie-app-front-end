@@ -2,6 +2,7 @@
   <div class="home">
     <!-- <img alt="Vue logo" src="../assets/logo.png" /> -->
     <div>
+      <button v-on:click="newMovie()">New Movies</button>
       <button v-on:click="indexMovies()">Load Movies</button>
       <ol>
         <h2>Movies</h2>
@@ -19,6 +20,7 @@ export default {
     return {
       message: "Hello wosdafrasdfasdfld!",
       movies: [],
+      params: {},
     };
   },
   // created: function () {
@@ -30,6 +32,21 @@ export default {
         this.movies = response.data;
         console.log(response.data);
       });
+    },
+    newMovie: function () {
+      this.params.title = "hello";
+      this.params.year = 1999;
+      this.params.plot = "a movie about greetings";
+      this.params.english = true;
+      console.log(this.params);
+      axios
+        .post("http://localhost:3000/movies", this.params)
+        .then((response) => {
+          this.movies = response.data;
+          console.log("Success!", response.data);
+          this.indexMovies();
+        })
+        .catch((error) => console.log(error.response));
     },
   },
 };
