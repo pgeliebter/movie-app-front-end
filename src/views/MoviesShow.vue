@@ -1,5 +1,36 @@
 <template>
-  <div class="about">
-    <h1>This is a show page</h1>
+  <div class="movies-show">
+    <input type="text" placeholder="Enter a Movie ID" v-model="movieId" />
+    <button v-on:click="showMovies()">Show Movie</button>
+    <h2>Title: {{ movie.title }}</h2>
+    <p>Plot: {{ movie.plot }}</p>
+    <p>Year: {{ movie.year }}</p>
+    <p>Director: {{ movie.director }}</p>
+    <div>
+      <p>Actors:</p>
+      <ul>
+        <li v-for="actor in movie.actors_hash" :key="actor.id">{{ actor.firstName }} {{ actor.lastName }}</li>
+      </ul>
+    </div>
   </div>
 </template>
+<script>
+import axios from "axios";
+export default {
+  data: function () {
+    return {
+      movie: [],
+      movieId: null,
+    };
+  },
+  created: function () {},
+  methods: {
+    showMovies: function () {
+      axios.get(`http://localhost:3000/movies/${this.movieId}`).then((response) => {
+        this.movie = response.data;
+        console.log("Movie:", this.movie);
+      });
+    },
+  },
+};
+</script>
