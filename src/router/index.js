@@ -28,7 +28,12 @@ const routes = [
     component: MoviesIndex,
   },
   {
-    path: "/movies/show",
+    path: "/movies/new",
+    name: "movies-new",
+    component: MoviesNew,
+  },
+  {
+    path: "/movies/:id",
     name: "movies-show",
     component: MoviesShow,
   },
@@ -36,11 +41,6 @@ const routes = [
     path: "/movies/edit",
     name: "movies-edit",
     component: MoviesEdit,
-  },
-  {
-    path: "/movies/new",
-    name: "movies-new",
-    component: MoviesNew,
   },
 ];
 

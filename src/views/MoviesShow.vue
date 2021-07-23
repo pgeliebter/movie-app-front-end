@@ -12,6 +12,7 @@
         <li v-for="actor in movie.actors_hash" :key="actor.id">{{ actor.firstName }} {{ actor.lastName }}</li>
       </ul>
     </div>
+    <router-link to="/movies">Back to all movies</router-link>
   </div>
 </template>
 <script>
@@ -23,14 +24,11 @@ export default {
       movieId: null,
     };
   },
-  created: function () {},
-  methods: {
-    showMovies: function () {
-      axios.get(`http://localhost:3000/movies/${this.movieId}`).then((response) => {
-        this.movie = response.data;
-        console.log("Movie:", this.movie);
-      });
-    },
+  created: function () {
+    axios.get(`http://localhost:3000/movies/${this.$route.params.id}`).then((response) => {
+      this.movie = response.data;
+      console.log("Movie:", this.movie);
+    });
   },
 };
 </script>
