@@ -46,7 +46,7 @@ const routes = [
     component: MoviesShow,
   },
   {
-    path: "/movies/edit",
+    path: "/movies/:id/edit",
     name: "movies-edit",
     component: MoviesEdit,
   },
