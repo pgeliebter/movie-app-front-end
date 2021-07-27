@@ -12,7 +12,7 @@
       </div>
       <div>
         Year:
-        <input type="text" v-model="newMovieParams.year" />
+        <input type="number" min="1901" max="2025" v-model="newMovieParams.year" />
       </div>
       <div>
         Director:
@@ -24,6 +24,10 @@
       </div>
       <div>
         <input type="submit" />
+      </div>
+      <hr style="width: 25%" />
+      <div>
+        <input type="reset" />
       </div>
     </form>
   </div>
