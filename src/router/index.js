@@ -2,7 +2,7 @@ import Vue from "vue";
 import VueRouter from "vue-router";
 import Home from "../views/Home.vue";
 import Signup from "../views/Signup.vue";
-
+import Login from "../views/Login.vue";
 import MoviesIndex from "../views/MoviesIndex.vue";
 import MoviesEdit from "../views/MoviesEdit.vue";
 import MoviesNew from "../views/MoviesNew.vue";
@@ -48,6 +48,11 @@ const routes = [
     path: "/movies/edit",
     name: "movies-edit",
     component: MoviesEdit,
+  },
+  {
+    path: "/login",
+    name: "login",
+    component: Login,
   },
 ];
 
