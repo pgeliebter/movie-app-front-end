@@ -1,7 +1,7 @@
 <template>
   <div class="movies-edit">
     <h1>{{ message }}</h1>
-    <form class="flex-down" v-on:submit.prevent="updateMovie()">
+    <form class="flex-dow n" v-on:submit.prevent="updateMovie()">
       <label for="title">Title</label>
       <input id="title" type="text" v-model="currentMovieParams.title" />
       <hr style="width: 25%" />
@@ -19,6 +19,8 @@
 
       <input type="submit" value="submit" />
     </form>
+    <hr />
+    <button v-on:click="destroyMovie()">Delete Movie</button>
   </div>
 </template>
 
@@ -41,6 +43,11 @@ export default {
     updateMovie: function () {
       axios.patch(`/movies/${this.$route.params.id}`, this.currentMovieParams).then((response) => {
         this.$router.push(`/movies/${response.data.id}`);
+        console.log(response.data);
+      });
+    },
+    destroyMovie: function () {
+      axios.delete(`/movies/${this.$route.params.id}`).then((response) => {
         console.log(response.data);
       });
     },

@@ -12,6 +12,7 @@
           <li v-for="actor in movie.actors_hash" :key="actor.id">{{ actor.firstName }} {{ actor.lastName }}</li>
         </ul>
       </div>
+      <router-link v-bind:to="`/movies/${movie.id}`"><button>View Movie</button></router-link>
     </div>
   </div>
 </template>
