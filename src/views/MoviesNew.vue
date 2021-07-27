@@ -16,11 +16,11 @@
       </div>
       <div>
         Director:
-        <input type="text" v-model="newMovieParams.direcotor" />
+        <input type="text" v-model="newMovieParams.director" />
       </div>
       <div>
         English:
-        <input type="checkbox" v-model="newMovieParams.english" />
+        <input value="null" type="checkbox" v-model="newMovieParams.english" />
       </div>
       <div>
         <input type="submit" />
@@ -33,11 +33,12 @@ import axios from "axios";
 export default {
   data: function () {
     return {
-      newMovieParams: {},
+      newMovieParams: { english: false },
     };
   },
   methods: {
     newMovie: function () {
+      console.log(this.newMovieParams);
       axios.post("http://localhost:3000/movies", this.newMovieParams).then((response) => {
         console.log(response.data, response.errors);
       });
