@@ -1,7 +1,5 @@
 <template>
   <div class="movies-show">
-    <input type="text" placeholder="Enter a Movie ID" v-model="movieId" />
-    <button v-on:click="showMovies()">Show Movie</button>
     <h2>Title: {{ movie.title }}</h2>
     <p>Plot: {{ movie.plot }}</p>
     <p>Year: {{ movie.year }}</p>

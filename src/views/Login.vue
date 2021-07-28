@@ -14,7 +14,7 @@
         <label>Password:</label>
         <input type="password" v-model="newSessionParams.password" />
       </div>
-      <input id="login" type="submit" value="Login" />
+      <input class="btn btn-secondary btn-sm" id="login" type="submit" value="Login" />
     </form>
   </div>
 </template>
